@@ -34,8 +34,8 @@ end
 # end
 
 def largest_Contiguous_subsum(arr)
-    max = 0
-    current_sum = 0
+    max = arr[0]
+    current_sum = arr[0]
     # [2, 3, -6, 7, -6, 7]
     arr[1..-1].each do |ele|
         # debugger
@@ -43,12 +43,12 @@ def largest_Contiguous_subsum(arr)
         
         if current_sum + ele > 0
             current_sum = ele + current_sum
-            p [ele,current_sum]
             max = [max,current_sum].max
-     
-        else
-        
             
+        else
+            
+            current_sum = ele
+            max = [max,current_sum].max
             current_sum = 0
         end
     end
@@ -65,7 +65,7 @@ list_1 = [5, 3, -7]
 list_2 = [2, 3, -6, 7, -6, 7]
 list_3 = [-5, -1, -3]
 
-p largest_Contiguous_subsum(list_3)
+p largest_Contiguous_subsum(list_1)
 
 
 
